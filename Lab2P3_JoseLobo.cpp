@@ -2,7 +2,7 @@
 using namespace std;
 
 int Menu() {
-	cout << "\nMenu" << endl << "----------------------------------------\n1. Ordenamiento y omisión en arreglos" << endl << "2.Factoriales y figuras" << endl << "----------------------------------------" << endl << "Ingrese la Opcion: ";
+	cout << "\nMenu" << endl << "----------------------------------------\n1. Ordenamiento y omisión en arreglos" << endl << "2. Factoriales y figuras" << endl << "----------------------------------------" << endl << "Ingrese la Opcion: ";
 	return 0;
 }
 int random() {
@@ -11,7 +11,7 @@ int random() {
 int Factorial(int n) {
 	if (n > 1)
 	{
-		return Factorial(n--);
+		return n * Factorial(--n);
 	}
 	return 1;
 }
@@ -62,14 +62,23 @@ int main()
 			}
 			break;
 		case 2:
-			cout << "n= "<<Factorial(5);
-
-
-
-
-
+			int c;
+			cout << "Ingrese el numero a sacar el factorial: ";
+			cin >> c;
+			int factC;
+			factC = Factorial(c + 1);
+			cout << "El factorial de " << c << " es " << factC << endl;
+			for (size_t i = 1; i <= factC; i++)
+			{
+				for (size_t j = 1; j <= i; j++)
+				{
+					cout << "*";
+				}
+				cout << endl;
+			}
 			break;
 		default:
+			cout << "Opcion no valida" << endl;
 			break;
 		}
 	}
