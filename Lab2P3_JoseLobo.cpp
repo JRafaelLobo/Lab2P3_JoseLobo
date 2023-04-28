@@ -1,20 +1,76 @@
-// Lab2P3_JoseLobo.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+using namespace std;
 
+int Menu() {
+	cout << "\nMenu" << endl << "----------------------------------------\n1. Ordenamiento y omisión en arreglos" << endl << "2.Factoriales y figuras" << endl << "----------------------------------------" << endl << "Ingrese la Opcion: ";
+	return 0;
+}
+int random() {
+	return 97 + rand() % (26);
+}
+int Factorial(int n) {
+	if (n > 1)
+	{
+		return Factorial(n--);
+	}
+	return 1;
+}
 int main()
 {
-    
+	srand(time(NULL));
+	int opcion = 1;
+
+	while (opcion != 0)
+	{
+		Menu();
+		cin >> opcion;
+		switch (opcion) {
+		case 0:
+			cout << "Saliendo";
+			break;
+		case 1:
+			//97-122
+			char arregloOriginal[10];
+			for (size_t i = 0; i < 10; i++)
+			{
+				arregloOriginal[i] = random();
+			}
+			cout << "Arreglo Original: ";
+			for (size_t i = 0; i < 10; i++)
+			{
+				cout << arregloOriginal[i] << " ";
+			}
+			cout << endl;
+			char arregloArreglado[10];
+			int n;
+			n = 0;
+			for (int j = 97; j <= 122; j++) {
+				for (size_t k = 0; k < 10; k++)
+				{
+					if (arregloOriginal[k] == j)
+					{
+						arregloArreglado[n] = arregloOriginal[k];
+						n++;
+						break;
+					}
+				}
+			}
+			cout << "Arreglo Ordenado: ";
+			for (size_t i = 0; i < 10; i++)
+			{
+				cout << arregloArreglado[i] << " ";
+			}
+			break;
+		case 2:
+			cout << "n= "<<Factorial(5);
+
+
+
+
+
+			break;
+		default:
+			break;
+		}
+	}
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
